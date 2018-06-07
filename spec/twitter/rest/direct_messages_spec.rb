@@ -64,11 +64,11 @@ describe Twitter::REST::DirectMessages do
 
   describe '#direct_message' do
     before do
-      stub_get('/1.1/direct_messages/show.json').with(query: {id: '1825786345'}).to_return(body: fixture('direct_message.json'), headers: {content_type: 'application/json; charset=utf-8'})
+      stub_get('/1.1/direct_messages/events/show.json').with(query: {id: '1825786345'}).to_return(body: fixture('direct_message_event.json'), headers: {content_type: 'application/json; charset=utf-8'})
     end
     it 'requests the correct resource' do
       @client.direct_message(1_825_786_345)
-      expect(a_get('/1.1/direct_messages/show.json').with(query: {id: '1825786345'})).to have_been_made
+      expect(a_get('/1.1/direct_messages/events/show.json').with(query: {id: '1825786345'})).to have_been_made
     end
     it 'returns the specified direct message' do
       direct_message = @client.direct_message(1_825_786_345)
@@ -80,11 +80,11 @@ describe Twitter::REST::DirectMessages do
   describe '#direct_messages' do
     context 'with ids passed' do
       before do
-        stub_get('/1.1/direct_messages/show.json').with(query: {id: '1825786345'}).to_return(body: fixture('direct_message.json'), headers: {content_type: 'application/json; charset=utf-8'})
+        stub_get('/1.1/direct_messages/events/show.json').with(query: {id: '1825786345'}).to_return(body: fixture('direct_message_event.json'), headers: {content_type: 'application/json; charset=utf-8'})
       end
       it 'requests the correct resource' do
         @client.direct_messages(1_825_786_345)
-        expect(a_get('/1.1/direct_messages/show.json').with(query: {id: '1825786345'})).to have_been_made
+        expect(a_get('/1.1/direct_messages/events/show.json').with(query: {id: '1825786345'})).to have_been_made
       end
       it 'returns an array of direct messages' do
         direct_messages = @client.direct_messages(1_825_786_345)
