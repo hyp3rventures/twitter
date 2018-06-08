@@ -11,23 +11,6 @@ module Twitter
       include Twitter::REST::Utils
       include Twitter::Utils
 
-      # Returns the 20 most recent direct messages sent to the authenticating user
-      #
-      # @see https://dev.twitter.com/rest/reference/get/direct_messages
-      # @note This method requires an access token with RWD (read, write & direct message) permissions. Consult The Application Permission Model for more information.
-      # @rate_limited Yes
-      # @authentication Requires user context
-      # @raise [Twitter::Error::Unauthorized] Error raised when supplied user credentials are not valid.
-      # @return [Array<Twitter::DirectMessage>] Direct messages sent to the authenticating user.
-      # @param options [Hash] A customizable set of options.
-      # @option options [Integer] :since_id Returns results with an ID greater than (that is, more recent than) the specified ID.
-      # @option options [Integer] :max_id Returns results with an ID less than (that is, older than) or equal to the specified ID.
-      # @option options [Integer] :count Specifies the number of records to retrieve. Must be less than or equal to 200.
-      # @option options [Integer] :page Specifies the page of results to retrieve.
-      def direct_messages_received(options = {})
-        perform_get_with_objects('/1.1/direct_messages.json', options, Twitter::DirectMessage)
-      end
-
       # Returns the 20 most recent direct messages events sent to the authenticating user
       # @see https://dev.twitter.com/rest/reference/get/direct_messages/events/list
       # @note This method requires an access token with RWD (read, write & direct message) permissions. Consult The Application Permission Model for more information.
