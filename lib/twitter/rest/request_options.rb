@@ -46,7 +46,7 @@ module Twitter
 
       def create_standard_options!(request_method, options)
         @request_method = request_method
-        @options_key = @request_method == :get ? :params : :form
+        @options_key = [:get, :delete].include?(@request_method) ? :params : :form
         @headers = Twitter::Headers.new(@client, @request_method, @uri, options).request_headers
       end
 
