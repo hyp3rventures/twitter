@@ -1,0 +1,31 @@
+{
+  "event": {
+    "type": "message_create",
+    "id": "418030038152642560",
+    "created_timestamp": "1392078023507",
+    "message_create": {
+      "target": {
+        "recipient_id": "7505382"
+      },
+      "sender_id": "14471007",
+      "message_data": {
+        "text": "My #newride from @PUBLICBikes. Don't you want one? https:\/\/t.co\/7HIwCl68Y8 https:\/\/t.co\/JSSxDPr4Sf",
+        "entities": {
+          "hashtags": [],
+          "symbols": [],
+          "urls": [],
+          "user_mentions": []
+        },
+        "quick_reply": {
+
+        },
+        "attachment": {
+          "type": "media",
+          "media": {
+
+          }
+        }
+      }
+    }
+  }
+}
