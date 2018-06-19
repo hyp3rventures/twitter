@@ -24,6 +24,7 @@ module Twitter
 
   private
 
+    # @return [Hash] Normalized hash of attrs
     def read_from_response(attrs)
       attrs[:event].nil? ? attrs : attrs[:event]
     end
@@ -32,7 +33,7 @@ module Twitter
       recipient_id = attrs[:message_create][:target][:recipient_id].to_i
       sender_id = attrs[:message_create][:sender_id].to_i
       {id: attrs[:id].to_i,
-       created_at: Time.at(attrs[:created_timestamp].to_i / 1000.0).to_s,
+       created_at: Time.at(attrs[:created_timestamp].to_i / 1000.0),
        sender: {id: sender_id},
        sender_id: sender_id,
        recipient: {id: recipient_id},
